@@ -319,17 +319,6 @@ s|?|?\nREMOVEME|g;
 
         }
 
-
-        #domain=tube8.com;
-        #retrive_main_js_files
-
-
-#        for xyz in $(cat ../easycrawler-domains-adult.txt); do
-#            domain=$xyz;
-#            retrive_main_js_files
-#        done
-
-
         for i in $(find ../ -maxdepth 1 -name "easycrawler-domains*.txt"); do
 
             echo "--------------------------------------------------
