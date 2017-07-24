@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #    EasyCrawler - Web crawler for EasyList and EasyPrivacy.
-#    "I sincerely hope you can take over this project which I want to EasyList maintainers."
+#    "I sincerely hope this project can be merged to https://github.com/easylist/easycrawler"
 #    Copyright (C) 2016, 2017 David Hedlund.
 #
 #    This program is free software: you can redistribute it and/or modify
