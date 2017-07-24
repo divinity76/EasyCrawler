@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#    Ad Reaper - Ad URL crawler and ad block generator.
+#    EasyCrawler - Web crawler for EasyList and EasyPrivacy.
 #    Copyright (C) 2016 David Hedlund.
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -43,17 +43,13 @@ OPTIONS
 
     --check-domains)
 
-        for i in $(find . -name easycrawler-domains*); do
+        for i in $(find $DIR -maxdepth 1 -name "easycrawler-domains*.txt"); do
 
             echo "--------------------------------------------------
 $i:"
 
-            for domain in $(cat $i); do
-
-                echo "* $domain";
-                
-            done
-
+            cat $i
+            
         done
 
         ;;
@@ -327,9 +323,23 @@ s|?|?\nREMOVEME|g;
         #retrive_main_js_files
 
 
-        for xyz in $(cat ../easyspider-domains.txt); do
-            domain=$xyz;
-            retrive_main_js_files
+#        for xyz in $(cat ../easycrawler-domains-adult.txt); do
+#            domain=$xyz;
+#            retrive_main_js_files
+#        done
+
+
+        for i in $(find ../ -maxdepth 1 -name "easycrawler-domains*.txt"); do
+
+            echo "--------------------------------------------------
+$i:"
+
+            for xyz in $(cat $i); do
+                domain=$xyz;
+                echo "$domain"
+                retrive_main_js_files
+            done
+            
         done
 
 
@@ -691,7 +701,6 @@ s|$|\$script|g;
             echo -e "
 -----------------------------------------------------------------
 Please return a ticket if you add something.
-
 Domains not found in EasyList or EasyPrivacy
 -----------------------------------------------------------------";
             cat domain-list-missing.txt
