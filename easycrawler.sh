@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #    EasyCrawler - Web crawler for EasyList and EasyPrivacy.
-#    Copyright (C) 2016 David Hedlund.
+#    Copyright (C) 2016, 2017 David Hedlund.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
