@@ -319,6 +319,7 @@ s|?|?\nREMOVEME|g;
 
         }
 
+
         for i in $(find ../ -maxdepth 1 -name "easycrawler-domains*.txt"); do
 
             echo "--------------------------------------------------
@@ -341,7 +342,7 @@ $i:"
 
     --analyse-easylist)
         
-        if [ ! -d build ]; then echo "Run easycrawler.sh first" && exit; fi
+        if [ ! -d build ]; then echo "Run easycrawler first" && exit; fi
 
 
         cd build
