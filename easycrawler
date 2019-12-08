@@ -74,6 +74,7 @@ $i:"
         package="curl"; unmet_dependencies
         package="libjavascript-beautifier-perl"; unmet_dependencies
         package="wget"; unmet_dependencies
+        package="php-cli"; unmet_dependencies
 
         if [ ! -f /usr/local/bin/tldextract ]; then echo "tldextract not installed (normally installed with: sudo pip install tldextract)"; fi
 
@@ -121,15 +122,7 @@ $i:"
             mkdir -p $domain
             cd $domain
             wget $domain
-
-            # ¤¤¤ 1: Copy JS related content ¤¤¤
-            sed -n "/<script/,/<\/script>/p" index.html > index-script.html
-
-
-            # ¤¤¤ 2: Get files from "<script src=" ¤¤¤
-            grep "<script src=\"" index-script.html > js_files1.html
-            grep "<script type=\"text/javascript\" src=\"" index-script.html >> js_files1.html
-            cat js_files1.html | tr -d '\t' > js_files2.html
+	    php -r 'foreach(@DOMDocument::loadHTMLFile("index.html")->getElementsByTagName("script") as $script){$src=$script->getAttribute("src");if(!empty($src)){echo $src,"\n";}}' > js_files2.html
 
             # A script line can look like this<script src="http://ss.phncdn.com/tubes-1.0.0.js" async defer></script
             sed -i "
